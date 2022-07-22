@@ -3,7 +3,7 @@
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
 useHead({
-  title: 'Vitesse',
+  title: 'NFT preview card component',
   meta: [
     { name: 'description', content: 'Opinionated Vite Starter Template' },
     {
@@ -18,7 +18,7 @@ useHead({
       href: computed(() => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'),
     },
   ],
-})
+});
 </script>
 
 <template>

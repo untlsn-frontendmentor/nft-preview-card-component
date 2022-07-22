@@ -1,32 +1,78 @@
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
-  presetTypography,
   presetUno,
   presetWebFonts,
+  presetWind,
   transformerDirectives,
   transformerVariantGroup,
-} from 'unocss'
+} from 'unocss';
+import twConfig from './tailwind.config.cjs';
 
 export default defineConfig({
   shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-700 text-white cursor-pointer hover:bg-teal-800 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-    ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
+    /* Example
+    ['name','uno-classes'],
+    */
+  ],
+  // WebStorm don't support unocss config, so theme put in tailwind.config.cjs
+  theme: {
+    ...twConfig.theme.extend,
+  },
+  rules: [
+    [/^size-(\d+)$/, ([, d]) => {
+      const size = `${(Number(d)) / 4}rem`;
+
+      return { width: size, height: size };
+    }],
+  ],
+  variants: [
+    (matcher) => {
+      if (!matcher.startsWith('max-'))
+        return matcher;
+
+      const [variant, ...rest] = matcher.split(':');
+
+      const mediaPx = {
+        sm: 640,
+        md: 768,
+        lg: 1024,
+        xl: 1280,
+      }[variant.replace('max-', '')] || 0;
+
+      if (mediaPx == 0)
+        return matcher;
+
+      return {
+        matcher: rest.join(':'),
+        parent: `@media (max-width: ${mediaPx}px)`,
+      };
+    },
+    (matcher) => {
+      if (!matcher.startsWith('hocus:'))
+        return matcher;
+
+      return {
+        matcher: matcher.slice(6),
+        selector: s => `${s}:hover, ${s}:focus`,
+      };
+    },
   ],
   presets: [
     presetUno(),
-    presetAttributify(),
-    presetIcons({
-      scale: 1.2,
-      warn: true,
-    }),
-    presetTypography(),
+    presetWind(),
     presetWebFonts({
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
+        sans: 'Source Sans Pro:400,700',
+        manrope: 'Manrope:300,400',
+      },
+    }),
+    presetIcons({
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'top',
+        'height': 'auto',
+        'min-height': '1em',
       },
     }),
   ],
@@ -34,5 +80,4 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-  safelist: 'prose prose-sm m-auto text-left'.split(' '),
-})
+});
