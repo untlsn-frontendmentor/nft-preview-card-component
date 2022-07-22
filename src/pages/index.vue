@@ -1,13 +1,9 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <div>
-    Hello World!
-  </div>
+  <main class="bg-primary-dark min-h-screen grid place-items-center">
+    <NftBox />
+  </main>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: home
-</route>

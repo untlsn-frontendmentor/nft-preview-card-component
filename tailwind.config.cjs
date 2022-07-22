@@ -8,17 +8,13 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          red: '#EC5F59',
-          blue: '#00B0F0',
-          text: '#32465A',
-          yellow: '#FADF82',
-          gray: '#9B9B9B',
+          dark: '#0D1A2D',
+          main: '#15273F',
         },
-        background: {
-          gray: '#F3F6F9',
-          // Mainly use with opacity 33%
-          shadow: '#32465A',
-        },
+        text: {
+          light: '#15D0D0',
+          white: '#87A7D3',
+        }
       },
     },
   },
