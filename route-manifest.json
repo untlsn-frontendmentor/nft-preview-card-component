@@ -1,0 +1,41 @@
+{
+  "/*404": [
+    {
+      "type": "script",
+      "href": "/nft-preview-card-component/assets/_...404_.35dc430f.js"
+    },
+    {
+      "type": "script",
+      "href": "/nft-preview-card-component/assets/entry-client.5782d17b.js"
+    },
+    {
+      "type": "style",
+      "href": "/nft-preview-card-component/assets/entry-client.95dd789d.css"
+    }
+  ],
+  "/": [
+    {
+      "type": "script",
+      "href": "/nft-preview-card-component/assets/index.bfa9da26.js"
+    },
+    {
+      "type": "script",
+      "href": "/nft-preview-card-component/assets/entry-client.5782d17b.js"
+    },
+    {
+      "type": "style",
+      "href": "/nft-preview-card-component/assets/entry-client.95dd789d.css"
+    }
+  ],
+  "entry-client": [
+    {
+      "type": "script",
+      "href": "/nft-preview-card-component/assets/entry-client.5782d17b.js"
+    },
+    {
+      "type": "style",
+      "href": "/nft-preview-card-component/assets/entry-client.95dd789d.css"
+    }
+  ],
+  "index.html": []
+}
