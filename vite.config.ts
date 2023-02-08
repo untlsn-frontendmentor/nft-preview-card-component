@@ -4,6 +4,9 @@ import css from 'unocss/vite';
 import autoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
+  server: {
+    port: 3333,
+  },
   plugins: [
     solid({ ssr: false }),
     css(),
